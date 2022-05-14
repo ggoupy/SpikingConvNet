@@ -78,7 +78,6 @@ class SpikingConv:
         self.stride = stride if isinstance(stride, tuple) else (stride,stride)
         self.padding = padding if isinstance(padding, tuple) else (padding,padding)
         self.firing_threshold = firing_threshold
-        self.inhibition_radius = inhibition_radius
         self.v_reset = v_reset
         self.weights = np.random.normal(
             loc=weight_init_mean, scale=weight_init_std,
@@ -94,6 +93,7 @@ class SpikingConv:
         # STDP
         self.recorded_spks = np.zeros((in_channels, in_height+2*self.padding[0], in_width+2*self.padding[1]))
         self.nb_winners = nb_winners
+        self.inhibition_radius = inhibition_radius
         self.adaptive_lr = adaptive_lr
         self.a_plus = stdp_a_plus
         self.a_minus = stdp_a_minus
@@ -138,7 +138,7 @@ class SpikingConv:
                 max(0,winner[2]-self.inhibition_radius):winner[2]+self.inhibition_radius+1
             ] = self.v_reset
             # Disable winner selection for neurons in same channel
-            pots_tmp[winner[0]] = 0 
+            pots_tmp[winner[0]] = self.v_reset 
         return winners
 
 
