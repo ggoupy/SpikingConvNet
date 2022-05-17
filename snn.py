@@ -198,7 +198,7 @@ class SpikingConv:
             max(0,winner_h-self.inhibition_radius):winner_h+self.inhibition_radius+1,
             max(0,winner_w-self.inhibition_radius):winner_w+self.inhibition_radius+1
         ] = False
-        # Lateral inhibition in the same channels (gobal intra competition)
+        # Lateral inhibition in the same channel (gobal intra competition)
         self.stdp_neurons[winner_c] = False
         # Adpative learning rate
         if self.adaptive_lr and self.stdp_cnt % self.update_lr_cnt == 0:
