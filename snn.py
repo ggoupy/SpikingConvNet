@@ -49,7 +49,7 @@ class SpikingPool:
 
     def __call__(self, in_spks):
         # padding 
-        in_spks = np.pad(in_spks, ((0,0), self.padding, self.padding), mode='constant')
+        in_spks = np.pad(in_spks, ((0,), (self.padding[0],), (self.padding[1],)), mode='constant')
         in_spks = torch.Tensor(in_spks).unsqueeze(0)
         # Max pooling (using torch as it is fast and easier, to be changed)
         out_spks = max_pool2d(in_spks, self.kernel_size, stride=self.stride).numpy()[0]
@@ -211,7 +211,7 @@ class SpikingConv:
 
     def __call__(self, spk_in, train=False):
         # padding 
-        spk_in = np.pad(spk_in, ((0,0), self.padding, self.padding), mode='constant')
+        spk_in = np.pad(spk_in, ((0,), (self.padding[0],), (self.padding[1],)), mode='constant')
         # Keep records of spike input for STDP
         self.recorded_spks += spk_in
         # Output recorded spikes
