@@ -156,8 +156,6 @@ class SpikingConv:
             if spks[spks_c[ind],spks_h[ind],spks_w[ind]] == 1:
                 # Compute index
                 inhib_channels = np.arange(spks.shape[0]) != spks_c[ind]
-                #inhib_h_beg, inhib_h_end = max(0,spks_h[ind]-self.inhibition_radius), spks_h[ind]+self.inhibition_radius+1
-                #inhib_w_beg, inhib_w_end = max(0,spks_w[ind]-self.inhibition_radius), spks_w[ind]+self.inhibition_radius+1
                 # Inhibit neurons
                 spks[inhib_channels,spks_h[ind],spks_w[ind]] = 0 
                 self.pot[inhib_channels,spks_h[ind],spks_w[ind]] = self.v_reset
@@ -314,7 +312,7 @@ def main(
     data_prop=1, # Proportion of data to load
     nb_timesteps=15, # Number of spike bins
     epochs=[2,2], # Number of epochs per layer
-    convergence_rate=0.01, # Stop training when learning convergence reachs this rate
+    convergence_rate=0.01, # Stop training when learning convergence reaches this rate
 ):
     np.random.seed(seed)
     torch.manual_seed(seed)
@@ -365,7 +363,7 @@ def main(
     
 
     ### READOUT ###
-
+    
     clf = LinearSVC(max_iter=3000, random_state=seed)
     clf.fit(output_train_max,y_train)
     y_pred = clf.predict(output_test_max)
