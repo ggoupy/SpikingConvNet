@@ -1,6 +1,6 @@
 # SpikingConvNet
 
-Implementation of the paper *STDP-based spiking deep neural networks for object recognition*, for the MNIST classification task.
+Implementation of the paper *STDP-based spiking deep neural networks for object recognition*, available [here](https://www.sciencedirect.com/science/article/abs/pii/S0893608017302903), for the MNIST classification task.
 
 ## Results
 
