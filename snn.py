@@ -13,14 +13,16 @@ Implementation of the paper STDP-based spiking deep neural networks for object r
 for the MNIST classification task.
 
 References:
-
-       [1] Kheradpisheh, S.R., et al. STDP-based spiking deep neural networks for object recognition.
-           arXiv:1611.01421v1 (Nov, 2016)
-
-       [2] Mozafari, M., Ganjtabesh, M., Nowzari-Dalini, A., & Masquelier, T. (2019). SpykeTorch: Efficient
-           Simulation of Convolutional Spiking Neural Networks With at Most One Spike per Neuron. Frontiers
-           in Neuroscience (https://doi.org/10.3389/fnins.2019.00625).
- 
+       
+       [1] Kheradpisheh, S. R., Ganjtabesh, M., Thorpe, S. J., &#38; Masquelier, T. (2018). 
+           STDP-based spiking deep convolutional neural networks for object recognition.
+           Neural Networks, 99, 56–67. https://doi.org/10.1016/J.NEUNET.2017.12.005
+  
+       [2] Mozafari, M., Ganjtabesh, M., Nowzari-Dalini, A., &#38; Masquelier, T. (2019).
+           SpykeTorch: Efficient simulation of convolutional spiking neural networks with
+           at most one spike per neuron.
+           Frontiers in Neuroscience, 13, 625. https://doi.org/10.3389/FNINS.2019.00625
+  
        [3] https://github.com/npvoid/SDNN_python
 """
 
